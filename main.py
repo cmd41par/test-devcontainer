@@ -9,8 +9,8 @@ def main():
     print(f"Python version: {sys.version}")
     print(f"Current user: {current_user}")
     print(f"OS name: {os.name}")
+    print(f"Current directory: {os.getcwd()}")
     print("Hello World!")
-    print("This is a test.")
 
 
 if __name__ == "__main__":
