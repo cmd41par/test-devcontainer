@@ -10,7 +10,6 @@ def main():
     print(f"Current user: {current_user}")
     print(f"OS name: {os.name}")
     print(f"Current directory: {os.getcwd()}")
-    print("Hello World!")
 
 
 if __name__ == "__main__":
