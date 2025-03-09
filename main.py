@@ -13,6 +13,14 @@ def main():
     print(f"Current directory: {os.getcwd()}")
     print(f"Pandas version: {pd.__version__}")
 
+    # test volume is on the same level as this project on my machine
+    test_volume_path = "/test-volume"
+    if os.path.exists(test_volume_path):
+        print(f"{test_volume_path} exists")
+    else:
+        print(f"{test_volume_path} does not exist")
+    print(f"environment var ENV = {os.environ.get('ENV')}")
+
 
 if __name__ == "__main__":
     main()
