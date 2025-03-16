@@ -6,6 +6,7 @@ import sys
 
 def main():
     current_user = getpass.getuser()
+    print(f"Current user: {current_user}")
     print(f"Python version: {sys.version}")
     print(f"Current user: {current_user}")
     print(f"OS name: {os.name}")
