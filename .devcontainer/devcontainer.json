@@ -12,6 +12,9 @@
 	// Add the Python extension for Visual Studio Code.
 	"customizations": {
 		"vscode": {
+			"settings": {
+                "python.pythonPath": "/usr/local/bin/python"
+            },
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance"
