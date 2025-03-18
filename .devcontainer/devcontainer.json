@@ -12,10 +12,13 @@
 	// Add the Python extension for Visual Studio Code.
 	"customizations": {
 		"vscode": {
+			"settings": {
+                "python.pythonPath": "/usr/local/bin/python"
+            },
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"ms-toolsai.jupyter",				,
+				"ms-toolsai.jupyter",
 				"ms-azuretools.vscode-docker"
 				
 			]
@@ -23,7 +26,6 @@
 	},
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "pip3 install --user -r requirements.txt",
-
 	// Configure tool-specific properties.
 	// "customizations": {},
 	// mounts - had to use ./../test-volume to get to a directory equal to test-devcontainer
