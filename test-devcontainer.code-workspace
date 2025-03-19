@@ -4,7 +4,7 @@
 			"path": "."
 		},
 		{
-			"path": "../../var/test-volume"
+			"path": "../../test-volume"
 		}
 	],
 	"settings": {}
