@@ -9,6 +9,8 @@ import pandas as pd
 def main():
     current_user = getpass.getuser()
     print(f"Python version: {sys.version}")
+    print(f"Python executable path: {sys.executable}")
+    print(f"Python path: {sys.path}")
     print(f"Current user: {current_user}")
     print(f"OS name: {os.name}")
     print(f"Current directory: {os.getcwd()}")
