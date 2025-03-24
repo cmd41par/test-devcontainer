@@ -43,4 +43,4 @@ ENV PATH="/opt/venv/bin:$PATH"
 #COPY --from=builder /usr/local/bin /usr/local/bin
 
 # Start SSH service and the application
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
