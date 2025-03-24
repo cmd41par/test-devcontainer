@@ -33,7 +33,7 @@ USER root
 
 
 # FROM python:3.13-slim-bookworm as prod
-FROM cgr.dev/chainguard/python:latest-dev as prod
+FROM chainguard/python:latest-dev as prod
 # Install git and make, then remove unnecessary files
 RUN apt-get update && apt-get install -y git make && apt-get clean && rm -rf /var/lib/apt/lists/*
 
