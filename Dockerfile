@@ -1,6 +1,6 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
-# FROM python:3.13-bookworm as builder
-FROM chainguard/python:latest-dev as builder
+FROM python:3.13-bookworm as builder
+# FROM chainguard/python:latest-dev as builder
 
 USER root
 RUN apk update && apk add posix-libc-utils && ldconfig
@@ -32,8 +32,8 @@ COPY . /app
 USER root
 
 
-# FROM python:3.13-slim-bookworm as prod
-FROM chainguard/python:latest-dev as prod
+FROM python:3.13-slim-bookworm as prod
+# FROM chainguard/python:latest-dev as prod
 # Install git and make, then remove unnecessary files
 RUN apt-get update && apt-get install -y git make && apt-get clean && rm -rf /var/lib/apt/lists/*
 
