@@ -2,9 +2,6 @@
 FROM python:3.13-bookworm as builder
 # FROM chainguard/python:latest-dev as builder
 
-USER root
-RUN apk update && apk add posix-libc-utils && ldconfig
-# USER nonroot
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -35,12 +32,15 @@ USER root
 FROM python:3.13-slim-bookworm as prod
 # FROM chainguard/python:latest-dev as prod
 # Install git and make, then remove unnecessary files
+# USER root
 RUN apt-get update && apt-get install -y git make && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Copy the Python dependencies from the builder stage
 COPY --from=builder /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 #COPY --from=builder /usr/local/bin /usr/local/bin
+WORKDIR /app
+COPY . /app
 
 # Start SSH service and the application
-#CMD ["/bin/bash"]
+CMD ["/bin/bash"]
