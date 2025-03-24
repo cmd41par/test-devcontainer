@@ -11,7 +11,11 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
+# Create a virtual environment
+RUN python -m venv /opt/venv
 
+# Ensure the virtual environment is used:
+ENV PATH="/opt/venv/bin:$PATH"
 # Install Python dependencies
 RUN pip install pandas pytest ipykernel matplotlib
 RUN pip show pytest
