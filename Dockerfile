@@ -1,6 +1,6 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 # FROM python:3.13-bookworm as builder
-FROM chainguard/python:latest-dev
+FROM chainguard/python:latest-dev as builder
 
 USER root
 RUN apk update && apk add posix-libc-utils && ldconfig
@@ -33,12 +33,13 @@ USER root
 
 
 # FROM python:3.13-slim-bookworm as prod
-#FROM cgr.dev/chainguard/python:latest-dev as prod
+FROM cgr.dev/chainguard/python:latest-dev as prod
 # Install git and make, then remove unnecessary files
-# RUN apt-get update && apt-get install -y git make && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git make && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Copy the Python dependencies from the builder stage
-#COPY --from=builder /usr/local/lib/python3.13/site-packages /usr/local/lib/python3.13/site-packages
+COPY --from=builder /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 #COPY --from=builder /usr/local/bin /usr/local/bin
 
 # Start SSH service and the application
